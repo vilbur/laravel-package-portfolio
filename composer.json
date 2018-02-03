@@ -1,0 +1,44 @@
+{
+	"name": "vilbur/portfolio",
+	"type": "library",
+	"description": "Template for development of packages for Laravel",
+	"keywords": [
+		"vilbur",
+		"TestPackage"
+	],
+	"homepage": "https://github.com/vilbur/laravel-package-portfolio",
+	"license": "MIT",
+	"authors": [{
+			"name": ":vilbur",
+			"email": "cerny.vil@gmail.com",
+			"role": "Developer"
+	}],
+	"require": {},
+	"require-dev": {},
+	"autoload": {
+		"psr-4": {
+			"Vilbur\\Portfolio\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Vilbur\\Portfolio\\": "tests/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+					"Vilbur\\Portfolio\\Providers\\PortfolioServiceProvider"
+			],
+			"aliases": {
+				"Portfolio": "Vilbur\\Portfolio\\Portfolio"
+			}
+		},
+		"branch-alias": {
+			"dev-master": "1.0-dev"
+		}
+	},
+	"config": {
+		"sort-packages": true
+	}
+}

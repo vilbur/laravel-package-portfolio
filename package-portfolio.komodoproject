@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="0b236847-b826-47e9-8e7f-979e90d70b65" kpf_version="5" name="package-portfolio.komodoproject">
+<folder id="6779d9d0-fca5-4088-9b4a-00f48cb99729" idref="9ef41f9e-e409-4737-8075-7598b65c38d5" name="Assets">
+</folder>
+<livefolder id="6678a8b4-f52d-47e1-839a-334fe99e48dc" idref="f982c8f1-81ab-494c-9e85-0fc2d249d20c" name="js" url="../../../resources/assets/js/portfolio">
+</livefolder>
+<livefolder id="bbb9da0f-94ce-483d-81e1-ea03e45908af" idref="f982c8f1-81ab-494c-9e85-0fc2d249d20c" name="sass" url="../../../resources/assets/sass/portfolio">
+</livefolder>
+<livefolder id="0c4a7bb6-7e64-4db0-a624-c1f59a1501cd" idref="6779d9d0-fca5-4088-9b4a-00f48cb99729" name="sass" url="../../../resources/assets/sass/">
+</livefolder>
+<livefolder id="9793fcb8-28bd-4e1c-b583-1af999fc63b3" idref="6779d9d0-fca5-4088-9b4a-00f48cb99729" name="js" url="../../../resources/assets/js/">
+</livefolder>
+<livefolder id="440a6bcc-fe25-4267-a336-725f7a66ba94" idref="0b236847-b826-47e9-8e7f-979e90d70b65" name="tests" url="tests">
+</livefolder>
+<livefolder id="4cda1561-8552-4619-8a21-282ec994ab2b" idref="0b236847-b826-47e9-8e7f-979e90d70b65" name="publish" url="publish">
+</livefolder>
+<livefolder id="909e810a-9eb5-4d04-9f44-8d6c61e1ff47" idref="0b236847-b826-47e9-8e7f-979e90d70b65" name="src" url="src">
+</livefolder>
+<folder id="9ef41f9e-e409-4737-8075-7598b65c38d5" idref="0b236847-b826-47e9-8e7f-979e90d70b65" name=" Laravel">
+</folder>
+<folder id="f982c8f1-81ab-494c-9e85-0fc2d249d20c" idref="0b236847-b826-47e9-8e7f-979e90d70b65" name="App\Resources">
+</folder>
+<preference-set idref="0b236847-b826-47e9-8e7f-979e90d70b65" id="project" preftype="project">
+  <long id="prefs_version">1</long>
+<preference-set id="testPlans">
+<preference-set id="pack-portfolio - test plan # 1">
+  <string id="command_line"></string>
+  <string id="directory">file:///C:/wamp64/www/portfolio/packages/vilbur/portfolio/</string>
+  <string id="language">PHP - PHPUnit</string>
+</preference-set>
+<preference-set id="pack-portfolio - test plan # 2">
+  <string id="command_line"></string>
+  <string id="directory">file:///C:/wamp64/www/portfolio/packages/vilbur/portfolio/tests</string>
+  <string id="language">PHP - PHPUnit</string>
+</preference-set>
+</preference-set>
+</preference-set>
+</project>
