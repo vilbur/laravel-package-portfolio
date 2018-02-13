@@ -18,5 +18,5 @@ const Portfolio	= () => import('./views/portfolio/portfolio.vue');
 
 #### Publish config files
 ``` bash
-php artisan vendor:publish --tag="voyager-seeder"
+php artisan vendor:publish --tag="portfolio"
 ```
