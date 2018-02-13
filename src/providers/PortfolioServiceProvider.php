@@ -12,11 +12,6 @@ class PortfolioServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-		/* ROUTES */
-		$this->loadRoutesFrom(	__DIR__.'/../routes/routes.php');
-
-		/* FACTORIES */
-		$this->registerEloquentFactoriesFrom(__DIR__.'/../database/factories');
 
 		$this->publishes([
 			/* CONFIG */
@@ -31,7 +26,7 @@ class PortfolioServiceProvider extends ServiceProvider
 			/* ASSETS SASS */
 			__DIR__.'/../../publish/resources/assets/sass'	=> resource_path("assets/sass/portfolio"),
 
-		], 'config');
+		], 'portfolio');
 
 
     }
@@ -46,8 +41,15 @@ class PortfolioServiceProvider extends ServiceProvider
         $this->app->bind('Portfolio', function(){
             return new \vilbur\Portfolio\Portfolio;
         });
-        $this->mergeConfigFrom(	__DIR__.'/../../publish/config/Portfolio.php', 'Portfolio');
-        $this->loadViewsFrom(	__DIR__.'/../../publish/views', 'Portfolio');
+
+		/* CONFIG */
+        $this->mergeConfigFrom( __DIR__.'/../../publish/config/Portfolio.php', 'portfolio');
+		/* VIEWS */
+	    $this->loadViewsFrom( __DIR__.'/../../publish/views', 'portfolio');
+		/* ROUTES */
+		$this->loadRoutesFrom( __DIR__.'/../routes/routes.php', 'portfolio');
+		/* FACTORIES */
+		$this->registerEloquentFactoriesFrom(__DIR__.'/../database/factories', 'portfolio');
 
     }
     /**
