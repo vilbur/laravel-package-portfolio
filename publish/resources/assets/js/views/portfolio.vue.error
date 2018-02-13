@@ -1,32 +1,44 @@
 <template>
 	<div id="portfolio">
-		<div v-for="(model, index) in models" class="portfolio_item hero" :model="model">
 
-			<router-link :to="{ path: '/portfolio/' + model.id }" class="hero-body" @click.native="showPorfolioFiles(model.id)" :style="{ backgroundImage: 'url(' + model.image + ')' }" >
-				<!--<div class="container portfolio_img">-->
-					<!--<img v-bind:src="model.image">-->
-				<!--</div>-->
+		<router-link class="hero is-small"  tag="div"
+			 v-for="(model, key, index) in models"
+
+			 :class="{ selected: selected == model.id }"
+			 :to="{ path: '/portfolio/' + model.id }"
+
+
+			 @click.native="showPorfolioFiles(model.id)">
+
+
+
+			<div class="hero-body">
+				<figure class="container">
+					<!--<router-link :to="{ path: '/portfolio/' + model.id }" class="shadow-inner">-->
+						<img class="hero_img" v-bind:src="model.image">
+					<!--</router-link>-->
+				</figure>
+			</div>
+
+			<div class="hero-foot">
 				<h1 class="title is-1 has-text-centered">
 					{{ model.title }}
 				</h1>
+				<h1 class="more title is-1 has-text-centered">
+					Show more ...
+				</h1>
+			</div>
 
-				<div class="hero-foot">
-					<h1 class="show-more subtitle is-1 has-text-centered">
-						Show more ...
-					</h1>
-				</div>
-			</router-link>
-
-			<portfolio-detail class="portfolio-detail" v-if="fetched.indexOf(model.id)>-1" :id="model.id" :class="{ selected: selected == model.id }" >
+			<portfolio-detail v-if="fetched.indexOf(model.id)>-1" :id="model.id" >
 				<p class="title is-3 has-text-centered">{{model.summary}}</p>
 			</portfolio-detail>
 
-		</div>
+
+		</router-link>
+
+
 	</div>
-
 </template>
-
-
 
 
 <script>
@@ -51,10 +63,10 @@
 		methods:{
 			showPorfolioFiles(id){
 				console.log('showPorfolioFiles');
+				this.toggleShowDetail(id);
 				this.fetchChildData(id);
-				this.toggleSelectDetail(id);
 			},
-			toggleSelectDetail(id){
+			toggleShowDetail(id){
 				this.selected = this.selected == id ? null : id;
 			},
 			fetchChildData(id){

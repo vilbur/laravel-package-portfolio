@@ -43,7 +43,7 @@
 				this.images = this.portfolioFiles.map(function(model){
 					return model.image;
 				});
-			});
+			}); 
 		},
 		mounted(){
 			this.selected = this.$route.params.id == this.id;

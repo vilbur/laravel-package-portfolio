@@ -6,3 +6,5 @@ class Portfolio
         return \Config::get('Portfolio.config-test');
     }
 }
+
+

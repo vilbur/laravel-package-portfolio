@@ -16,6 +16,8 @@ class PortfolioFile extends Model {
 
 	public $sluggable =[ 'build_from'=> 'title'];
 
+	
+
 	 //protected $nullable = ['skill_id'];
 
 	protected $hidden = array();

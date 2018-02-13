@@ -26,10 +26,10 @@ class PortfolioServiceProvider extends ServiceProvider
 			__DIR__.'/../../publish/database'	=> $this->app->databasePath(),
 
 			/* ASSETS JS */
-			//__DIR__.'/../../publish/resources/assets/js'	=> resource_path("assets/js/portfolio"), // DISABLED PUBLISHING ON PACKAGE DEVELOPMENT
+			__DIR__.'/../../publish/resources/assets/js'	=> resource_path("assets/js/portfolio"),
 
 			/* ASSETS SASS */
-			//__DIR__.'/../../publish/resources/assets/sass'	=> resource_path("assets/sass/portfolio"), // DISABLED PUBLISHING ON PACKAGE DEVELOPMENT
+			__DIR__.'/../../publish/resources/assets/sass'	=> resource_path("assets/sass/portfolio"),
 
 		], 'config');
 
