@@ -15,3 +15,8 @@ const Portfolio	= () => import('./views/portfolio/portfolio.vue');
 
 ### Dependency
 [vue-gallery](https://github.com/RobinCK/vue-gallery)  
+
+#### Publish config files
+``` bash
+php artisan vendor:publish --tag="voyager-seeder"
+```
