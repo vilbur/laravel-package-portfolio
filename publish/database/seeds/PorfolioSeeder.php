@@ -13,6 +13,6 @@ class PorfolioSeeder extends Seeder
     public function run()
     {
 		if(!Portfolio::all()->first())
-			factory(Portfolio::class, 1)->create();
+			factory(Portfolio::class, 7)->create();
     }
 }
