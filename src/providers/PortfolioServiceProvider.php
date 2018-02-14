@@ -26,7 +26,7 @@ class PortfolioServiceProvider extends ServiceProvider
 			/* ASSETS SASS */
 			__DIR__.'/../../publish/resources/assets/sass'	=> resource_path("assets/sass/portfolio"),
 
-		], 'portfolio');
+		], 'vilbur/portfolio');
 
 
     }
