@@ -1,7 +1,5 @@
 <?php
 
-namespace Vilbur\Portfolio\Database\Seeds;
-
 use Illuminate\Database\Seeder;
 use Vilbur\Portfolio\Models\CategoryPortfolio;
 
