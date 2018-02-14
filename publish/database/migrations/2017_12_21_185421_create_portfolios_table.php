@@ -15,6 +15,7 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->increments('id');
+			$table->string('slug')->nullable();
             $table->string('title',256);
 			$table->string('image', 512)->nullable();
 			$table->string('summary', 256)->nullable();
@@ -35,4 +36,3 @@ class CreatePortfoliosTable extends Migration
         Schema::dropIfExists('portfolios');
     }
 }
-

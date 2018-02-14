@@ -15,6 +15,7 @@ class CreateCategoryPortfoliosTable extends Migration
     {
         Schema::create('category_portfolios', function (Blueprint $table) {
             $table->increments('id');
+			$table->string('slug')->nullable();
             $table->string('title',256);
 			$table->string('summary', 256)->nullable();
 			$table->string('description', 2048)->nullable();
