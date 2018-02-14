@@ -14,8 +14,6 @@ class PortfolioServiceProvider extends ServiceProvider
     {
 
 		$this->publishes([
-			/* CONFIG */
-			__DIR__.'/../../publish/config/Portfolio.php'	=> config_path('Portfolio.php'),
 
 			/* DATABASE */
 			__DIR__.'/../../publish/database'	=> $this->app->databasePath(),
@@ -41,9 +39,6 @@ class PortfolioServiceProvider extends ServiceProvider
         $this->app->bind('Portfolio', function(){
             return new \vilbur\Portfolio\Portfolio;
         });
-
-		/* CONFIG */
-        $this->mergeConfigFrom( __DIR__.'/../../publish/config/Portfolio.php', 'portfolio');
 		/* VIEWS */
 	    $this->loadViewsFrom( __DIR__.'/../../publish/views', 'portfolio');
 		/* ROUTES */
