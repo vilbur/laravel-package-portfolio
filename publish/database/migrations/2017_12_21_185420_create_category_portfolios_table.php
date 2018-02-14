@@ -30,6 +30,6 @@ class CreateCategoryPortfoliosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portfolios');
+        Schema::dropIfExists('category_portfolios');
     }
 }
