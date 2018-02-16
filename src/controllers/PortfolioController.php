@@ -12,7 +12,7 @@ class PortfolioController extends Controller
 	*/
 	public function getAllPortfolios()
 	{
-		return Portfolio::all()->toArray();
+		return Portfolio::all()->sortByDesc('id')->values();
 	}
 	/**
 	*/
