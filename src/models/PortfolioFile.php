@@ -3,25 +3,26 @@
 namespace Vilbur\Portfolio\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioFile extends Model {
 
 
 	protected $table = 'portfolio_files';
 
-	protected $fillable = [ 'id','title', 'file', 'url', 'author', 'type', 'about',  'portfolio_id', 'portfolio_skill_id', 'highlighted', 'description' ];
+	protected $fillable = [ 'id','title', 'image', 'url', 'author', 'type', 'about',  'portfolio_id', 'description' ];
 
-	public $sluggable =[ 'build_from'=> 'title'];
+	protected $appends = ['image_url'];
 
-	protected $hidden = array();
+	protected $hidden = [];
 
 
 	public function portfolio(){
 		return $this->belongsTo('Vilbur\Portfolio\Models\Portfolio');
 	}
 
-	//public function PortfolioSkill(){
-	//	return $this->belongsTo('Vilbur\Portfolio\Models\PortfolioSkill');
-	//}
+	public function getImageUrlAttribute() {
+		return preg_match('/^http/i', $this->image ) ? $this->image :  Storage::url($this->image);
+    }
 
 }
