@@ -1,19 +1,19 @@
 <template>
 	<div id="portfolio">
-		<div v-for="(model, index) in models" class="portfolio_item hero" :model="model">
+		<div v-for="(model, index) in models" class="portfolio_item hero" :model="model" :class="{ selected: selected == model.id }">
 
-			<router-link :to="{ path: '/portfolio/' + model.id }" class="hero-body" @click.native="showPorfolioFiles(model.id)" :style="{ backgroundImage: 'url(' + model.image + ')' }" >
-				<!--<div class="container portfolio_img">-->
-					<!--<img v-bind:src="model.image">-->
-				<!--</div>-->
-				<h1 class="title is-1 has-text-centered">
-					{{ model.title }}
-				</h1>
+			<router-link :to="{ path: '/portfolio/' + model.id }" class="hero-body" @click.native="showPorfolioFiles(model.id)"  >
+				<div class="container" :style="{ backgroundImage: 'url(' +  model.image_url + ')' }">
 
-				<div class="hero-foot">
-					<h1 class="show-more subtitle is-1 has-text-centered">
-						Show more ...
+						<!--<img v-bind:src="model.image">-->
+					<h1 class="title is-1 has-text-centered">
+						{{ model.title }}
 					</h1>
+					<div class="hero-foot">
+						<h1 class="show-more subtitle is-1 has-text-centered">
+							Show more ...
+						</h1>
+					</div>
 				</div>
 			</router-link>
 

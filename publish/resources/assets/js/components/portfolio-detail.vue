@@ -8,15 +8,17 @@
 			<!--</div>-->
 		<!--</div>-->
 		<gallery :id="'blueimp-gallery-' + id" :images="images" :index="index" @close="index = null"></gallery>
+		<div class="container">
 
-		<div class="portfolio_detail columns is-centered is-multiline" >
-			<div v-for="(image, imageIndex) in images" class="column is-3" >
-				<div
-				  class="image"
-				  :key="imageIndex"
-				  @click="index = imageIndex"
-				  :style="{ backgroundImage: 'url(' + image + ')', height: '300px' }"
-				></div>
+			<div class="portfolio_detail columns is-centered is-multiline" >
+				<div v-for="(image, imageIndex) in images" class="column is-3" >
+					<div
+					  class="image"
+					  :key="imageIndex"
+					  @click="index = imageIndex"
+					  :style="{ backgroundImage: 'url(' + image + ')' }"
+					></div>
+				</div>
 			</div>
 		</div>
 
@@ -41,9 +43,9 @@
 			axios.get('/api/portfolio/' + this.id).then( response => {
 				this.portfolioFiles = response.data;
 				this.images = this.portfolioFiles.map(function(model){
-					return model.image;
+					return model.image_url;
 				});
-			}); 
+			});
 		},
 		mounted(){
 			this.selected = this.$route.params.id == this.id;
