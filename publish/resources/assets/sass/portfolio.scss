@@ -3,71 +3,115 @@
 #portfolio{
 
 	.hero {
-	//	//min-height: 256px;
-	//	max-height: 24vh;
-	//	//width: 100vw;
-	//	//margin-top: 10em;
-		overflow: hidden;
+	////	//min-height: 256px;
+	////	max-height: 24vh;
+	////	//width: 100vw;
+	////	//margin-top: 10em;
+	//
 
-		.hero-body {
+		.portfolio-background{
+			height: 8em;
+			border:	1px solid grey;
+			background-position: center center;
+			background-size: 150%;
+			//-webkit-filter: grayscale(50%);
+			transition: all .3s ease-in-out;
+			//filter: gray;
+			.title,
+			.subtitle{
 
-			&:hover {
-				.show-more {
+				opacity: 0;
+				color:white;
+
+			}
+		}
+
+		a:not(.is-active):hover {
+			.subtitle{
+				opacity: 1;
+			}
+		}
+
+		a:hover
+		,a.is-active
+		{
+			.portfolio-background{
+				background-size: 100%;
+				//-webkit-filter: grayscale(100%);
+				.title{
 					opacity: 1;
 				}
-				.container{
-					background-size: 100%;
-					-webkit-filter: grayscale(0%);
-				}
+
 			}
-			.container{
-				border:	1px solid grey;
-				background-position: center center;
-				background-size: 150%;
+		}
+		a.is-active
+		{
+			.portfolio-background{
 				-webkit-filter: grayscale(50%);
-				transition: all .3s ease-in-out
-				//filter: gray;
-			}
-
-			& .title,
-			& .subtitle
-			{
-				color:white;
 			}
 		}
 
-		.show-more {
-			opacity: 0;
-		}
-	}
-	.portfolio-detail{
-
-		max-height: 1px;
-		transition: max-height 1s;
-
-
-
-		&.selected{
+		a.is-active + .portfolio-detail{
 			height: auto;
 			max-height: 2048px;
-			//border:	1px solid green;
-			//padding:	2em;
-			padding-bottom:	4em;
 		}
 
-		.title{
-			//padding: 2em;
+	//		&:hover {
+	//			.show-more {
+	//				opacity: 1;
+	//			}
+
+	//		}
+
+
+	//
+	//		& .title,
+	//		& .subtitle
+	//		{
+	//			color:white;
+	//		}
+
+	//
+	//	.show-more {
+	//		opacity: 0;
+	//	}
+
+
+	}
+
+	.portfolio-detail{
+
+		max-height: 0px;
+		overflow: hidden;
+		//transition: max-height 1s ease-in-out;
+
+		.columns{
+			padding: 2em 0;
+
 		}
-		.column{
-			/*border: 1px solid blue;*/
-		}
+	//
+	//	&.selected{
+	//		height: auto;
+	//		max-height: 2048px;
+	////		//border:	1px solid green;
+	////		//padding:	2em;
+	////		//padding-bottom:	4em;
+	//	}
+	////	.title{
+	////		//padding: 2em;
+	////	}
+	////	.column{
+	////		/*border: 1px solid blue;*/
+	////	}
 		.image{
 			//min-height:	100px;
+			//background-color: grey;
 			height:	20vh;
 			background-size:     cover;                      /* <------ */
+			//background-size: auto 100%;
 			background-repeat:   no-repeat;
 			background-position: center center;              /* optional, center the image */
-			border:	1px solid lightgrey;
+			border:	1px solid grey;
 		}
 
 	}
