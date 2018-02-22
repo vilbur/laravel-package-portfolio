@@ -25,10 +25,8 @@
 				background-position: center center;
 				background-size: 150%;
 				-webkit-filter: grayscale(50%);
-				//filter: gray;
 				transition: all .3s ease-in-out
-
-
+				//filter: gray;
 			}
 
 			& .title,
@@ -36,7 +34,6 @@
 			{
 				color:white;
 			}
-
 		}
 
 		.show-more {
@@ -48,10 +45,14 @@
 		max-height: 1px;
 		transition: max-height 1s;
 
+
+
 		&.selected{
 			height: auto;
 			max-height: 2048px;
 			//border:	1px solid green;
+			//padding:	2em;
+			padding-bottom:	4em;
 		}
 
 		.title{
@@ -66,6 +67,7 @@
 			background-size:     cover;                      /* <------ */
 			background-repeat:   no-repeat;
 			background-position: center center;              /* optional, center the image */
+			border:	1px solid lightgrey;
 		}
 
 	}
