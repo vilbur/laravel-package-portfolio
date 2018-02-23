@@ -1,13 +1,6 @@
-
-
 #portfolio{
 
 	.hero {
-	////	//min-height: 256px;
-	////	max-height: 24vh;
-	////	//width: 100vw;
-	////	//margin-top: 10em;
-	//
 
 		.portfolio-background{
 			height: 8em;
@@ -56,27 +49,6 @@
 			max-height: 2048px;
 		}
 
-	//		&:hover {
-	//			.show-more {
-	//				opacity: 1;
-	//			}
-
-	//		}
-
-
-	//
-	//		& .title,
-	//		& .subtitle
-	//		{
-	//			color:white;
-	//		}
-
-	//
-	//	.show-more {
-	//		opacity: 0;
-	//	}
-
-
 	}
 
 	.portfolio-detail{
@@ -85,24 +57,13 @@
 		overflow: hidden;
 		//transition: max-height 1s ease-in-out;
 
-		.columns{
-			padding: 2em 0;
-
+		.title{
+			border-bottom:	1px solid grey;
 		}
-	//
-	//	&.selected{
-	//		height: auto;
-	//		max-height: 2048px;
-	////		//border:	1px solid green;
-	////		//padding:	2em;
-	////		//padding-bottom:	4em;
-	//	}
-	////	.title{
-	////		//padding: 2em;
-	////	}
-	////	.column{
-	////		/*border: 1px solid blue;*/
-	////	}
+		.columns{
+			padding-bottom: 4em;
+		}
+
 		.image{
 			//min-height:	100px;
 			//background-color: grey;

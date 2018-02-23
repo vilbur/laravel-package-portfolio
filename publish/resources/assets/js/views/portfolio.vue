@@ -12,9 +12,12 @@
 					</router-link>
 
 					<div class="hero-foot portfolio-detail">
-						<portfolio-detail class="" v-if="fetched.indexOf(model.id)>-1" :id="model.id">
-							<p class="title is-3 has-text-centered">{{model.summary}}</p>
-						</portfolio-detail>
+						<div class="section borderX-r">
+							<p   class="title is-3 has-text-centered borderX"	v-if="model.summary">{{model.summary}}</p>
+							<div class="column is-6 has-text-left borderX-b" v-if="model.description" v-html="model.description"></div>
+						</div>
+
+						<portfolio-detail class="" v-if="fetched.indexOf(model.id)>-1" :id="model.id"></portfolio-detail>
 					</div>
 
 				</div>
@@ -23,9 +26,6 @@
 	</div>
 
 </template>
-
-
-
 
 <script>
 	import portfolioDetail from '../components/portfolio-detail';
@@ -45,18 +45,10 @@
 			axios.get('/api/portfolio').then( response => this.models = response.data );
 		},
 		mounted(){
-			//this.selected = this.$route.params.id;
-			//console.log( 'ROUTE: ' + this.$route.params.id );
+
 		},
 		methods:{
-			//showPorfolioFiles(id){
-			//	console.log('showPorfolioFiles: '+id);
-			//	this.fetchChildData(id);
-			//	//this.toggleSelectDetail(id);
-			//},
-			//toggleSelectDetail(id){
-			//	this.selected = this.selected == id ? null : id;
-			//},
+
 			fetchChildData(id){
 				console.log('fetchChildData: '+id);
 
