@@ -4,7 +4,7 @@
 			<div class="hero-body borderX-r">
 				<div class="container borderX-g">
 
-					<router-link :to="{ path: '/portfolio/' + model.id }" @click.native="fetchChildData(model.id)">
+					<router-link :to="{ path: '/portfolio/' + model.slug }" @click.native="fetchChildData(model.slug)">
 						<div class="portfolio-background" :style="{ backgroundImage: 'url(' +  model.image_url + ')' }">
 							<h1 class="title is-1 has-text-centered">{{ model.title }}</h1>
 							<h2 class="subtitle is-2 has-text-centered">Show more ...</h2>
@@ -17,7 +17,7 @@
 							<div class="column is-6 has-text-left borderX-b" v-if="model.description" v-html="model.description"></div>
 						</div>
 
-						<portfolio-detail class="" v-if="fetched.indexOf(model.id)>-1" :id="model.id"></portfolio-detail>
+						<portfolio-detail class="" v-if="fetched.indexOf(model.slug)>-1" :slug="model.slug"></portfolio-detail>
 					</div>
 
 				</div>
@@ -41,7 +41,7 @@
 			};
 		},
 		created(){
-			this.fetchChildData( this.$route.params.id );
+			this.fetchChildData( this.$route.params.slug );
 			axios.get('/api/portfolio').then( response => this.models = response.data );
 		},
 		mounted(){
@@ -49,11 +49,11 @@
 		},
 		methods:{
 
-			fetchChildData(id){
-				console.log('fetchChildData: '+id);
+			fetchChildData(slug){
+				console.log('fetchChildData: '+slug);
 
-				if(this.fetched.indexOf(id)== -1)
-					this.fetched.push(parseInt(id));
+				if(this.fetched.indexOf(slug)== -1)
+					this.fetched.push(slug);
 			}
 		},
 		components:{

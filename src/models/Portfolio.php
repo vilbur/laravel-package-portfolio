@@ -5,10 +5,12 @@ namespace Vilbur\Portfolio\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class Portfolio extends Model
 {
 	use Sluggable;
+    use SluggableScopeHelpers;
 
     protected $appends = ['image_url'];
 

@@ -1,6 +1,6 @@
 <template>
 	<div class="columns is-centered is-multiline" >
-		<gallery :id="'blueimp-gallery-' + id" :images="images" :index="index" @close="index = null"></gallery>
+		<gallery :id="'blueimp-gallery-' + slug" :images="images" :index="index" @close="index = null"></gallery>
 
 		<div v-for="(image, imageIndex) in images" class="column is-3" >
 			<div class="image"
@@ -17,7 +17,7 @@
 
 	export default {
 
-		props: ['id'],
+		props: ['slug'],
 		data(){
 			return {
 				//selected:	null,
@@ -27,7 +27,7 @@
 			};
 		},
 		created(){
-			axios.get('/api/portfolio/' + this.id).then( response => {
+			axios.get('/api/portfolio/' + this.slug).then( response => {
 				this.portfolioFiles = response.data;
 				this.images = this.portfolioFiles.map(function(model){
 					return model.image_url;
@@ -35,7 +35,7 @@
 			});
 		},
 		mounted(){
-			this.selected = this.$route.params.id == this.id;
+			this.selected = this.$route.params.slug == this.slug;
 		},
 
 	};

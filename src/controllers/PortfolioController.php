@@ -16,8 +16,8 @@ class PortfolioController extends Controller
 	}
 	/**
 	*/
-	public function getPortfolioFiles($id)
+	public function getPortfolioFiles($slug)
 	{
-		return Portfolio::find($id)->portfolioFiles->toArray();
+		return Portfolio::findBySlug($slug)->portfolioFiles->toArray();
 	}
 }
