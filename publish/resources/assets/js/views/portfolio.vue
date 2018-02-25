@@ -4,20 +4,28 @@
 			<div class="hero-body borderX-r">
 				<div class="container borderX-g">
 
-					<router-link :to="{ path: '/portfolio/' + model.slug }" @click.native="fetchChildData(model.slug)">
+					<router-link :to="{ path: '/portfolio/' + model.slug }" :id="'link-'+model.slug" @click.native="fetchChildData(model.slug)">
 						<div class="portfolio-background" :style="{ backgroundImage: 'url(' +  model.image_url + ')' }">
-							<h1 class="title is-1 has-text-centered">{{ model.title }}</h1>
-							<h2 class="subtitle is-2 has-text-centered">Show more ...</h2>
+							<h2 class="title is-1 ">{{ model.title }}</h2>
+							<!--<h2 class="subtitle is-2 has-text-centered">Show more ...</h2>-->
 						</div>
 					</router-link>
 
 					<div class="hero-foot portfolio-detail">
-						<div class="section borderX-r">
-							<p   class="title is-3 has-text-centered borderX"	v-if="model.summary">{{model.summary}}</p>
-							<div class="column is-6 has-text-left borderX-b" v-if="model.description" v-html="model.description"></div>
+
+						<p   class="title is-3 has-text-centeredX borderX"	v-if="model.summary">{{model.summary}}</p>
+						<div class="columns">
+							<div class="column is-6" v-if="model.description">
+
+								<div class="column is-6X has-text-left borderX-b"  v-html="model.description"></div>
+
+							</div>
+							<div class="column">
+
+								<portfolio-detail class="" v-if="fetched.indexOf(model.slug)>-1" :slug="model.slug"></portfolio-detail>
+							</div>
 						</div>
 
-						<portfolio-detail class="" v-if="fetched.indexOf(model.slug)>-1" :slug="model.slug"></portfolio-detail>
 					</div>
 
 				</div>
@@ -29,6 +37,7 @@
 
 <script>
 	import portfolioDetail from '../components/portfolio-detail';
+	import VueScrollTo from 'vue-scrollto';
 
 	export default {
 
@@ -51,9 +60,12 @@
 
 			fetchChildData(slug){
 				console.log('fetchChildData: '+slug);
-
 				if(this.fetched.indexOf(slug)== -1)
 					this.fetched.push(slug);
+
+				setTimeout( function(){
+					VueScrollTo.scrollTo( "#link-"+slug, 500, {easing: 'ease-in', offset: -80});
+				}, 100);
 			}
 		},
 		components:{
@@ -61,3 +73,4 @@
 		}
 	};
 </script>
+

@@ -3,25 +3,36 @@
 	.hero {
 
 		.portfolio-background{
-			height: 8em;
-			border:	1px solid grey;
+			height: 8rem;
+			border:	1px solid grey; 
 			background-position: center center;
 			background-size: 150%;
 			//-webkit-filter: grayscale(50%);
 			transition: all .3s ease-in-out;
 			//filter: gray;
+			//vertical-align: bottom;
+			//vertical-align: text-bottom;
+			position: relative;
+
 			.title,
 			.subtitle{
 
-				opacity: 0;
+				//opacity: 0;
+				position: absolute;
+				bottom: -12px;
+				//height:	100%;
 				color:white;
-
+				text-transform: uppercase;
+				//vertical-align: bottom;
+				font-size:	4em;
+				font-weight: bold;
+				//border:	1px solid grey;
 			}
 		}
 
 		a:not(.is-active):hover {
 			.subtitle{
-				opacity: 1;
+				//opacity: 1;
 			}
 		}
 
@@ -32,7 +43,7 @@
 				background-size: 100%;
 				//-webkit-filter: grayscale(100%);
 				.title{
-					opacity: 1;
+					//opacity: 1;
 				}
 
 			}
@@ -40,7 +51,7 @@
 		a.is-active
 		{
 			.portfolio-background{
-				-webkit-filter: grayscale(50%);
+				-webkit-filter: grayscale(100%);
 			}
 		}
 
@@ -61,7 +72,9 @@
 			border-bottom:	1px solid grey;
 		}
 		.columns{
-			padding-bottom: 4em;
+			//padding-bottom: 4em;
+			padding: 2em;
+
 		}
 
 		.image{
