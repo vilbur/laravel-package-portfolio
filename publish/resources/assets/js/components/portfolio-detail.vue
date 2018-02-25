@@ -1,6 +1,6 @@
 <template>
 	<div class="columns is-centered is-multiline" >
-		<gallery :id="'blueimp-gallery-' + slug" :images="images" :index="index" @close="index = null"></gallery>
+		<gallery :id="'blueimp-gallery-' + slug" :images="images" :index="index" @close="index = null" :options="{youTubeVideoIdProperty: 'video', youTubePlayerVars: {rel:0}, youTubeClickToPlay: false}"></gallery>
 
 		<div v-for="(image, imageIndex) in images" class="column is-6" >
 			<div class="image"
@@ -30,12 +30,13 @@
 			axios.get('/api/portfolio/' + this.slug).then( response => {
 				this.portfolioFiles = response.data;
 				this.images = this.portfolioFiles.map(function(model){
-					//return model.image_url;
-
 					return {
-						title: 'Lorem ipsum luctus habitasse.',
-						description: '<b>Lorem ipsum luctus habitasse</b><br> ac aenean donec ultrices maecenas arcu, risus primis sodales urna feugiat platea conubia volutpat duis nisl, eleifend netus dolor iaculis ante diam turpis.',
-						href:  model.image_url,
+						title:	model.title,
+						description:	model.description,
+						type:	'text/html',
+						href:	model.image_url,
+						video:	model.url,
+
 					};
 				});
 			});
