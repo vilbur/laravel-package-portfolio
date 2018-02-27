@@ -10,15 +10,15 @@ class PortfolioFile extends Model {
 
 	protected $table = 'portfolio_files';
 
-	protected $fillable = [ 'id','title', 'image', 'url', 'author', 'type', 'about',  'portfolio_id', 'description' ];
+	protected $fillable = [ 'id', 'portfolio_item_id', 'image', 'url', 'author', 'title', 'summary', 'description' ];
 
 	protected $appends = ['image_url'];
 
 	protected $hidden = [];
 
 
-	public function portfolio(){
-		return $this->belongsTo('Vilbur\Portfolio\Models\Portfolio');
+	public function portfolioItem(){
+		return $this->belongsTo('Vilbur\Portfolio\Models\PortfolioItem');
 	}
 
 	public function getImageUrlAttribute() {

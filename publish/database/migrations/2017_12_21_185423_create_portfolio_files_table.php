@@ -14,8 +14,9 @@ class CreatePortfolioFilesTable extends Migration
     {
 		Schema::create('portfolio_files', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('portfolio_id')->unsigned()->index();
-			$table->foreign('portfolio_id')->references('id')->on('portfolios')->onDelete('cascade');
+
+			$table->integer('portfolio_item_id')->unsigned()->index();
+			$table->foreign('portfolio_item_id')->references('id')->on('portfolio_items')->onDelete('cascade');
 
 			$table->string('image',  \Config::get('migrations.lenght.image'))->nullable();
 			$table->string('url',   \Config::get('migrations.lenght.url'))->nullable();

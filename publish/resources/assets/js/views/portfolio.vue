@@ -22,7 +22,7 @@
 							</div>
 							<div class="column">
 
-								<portfolio-detail class="" v-if="fetched.indexOf(model.slug)>-1" :slug="model.slug"></portfolio-detail>
+								<portfolio-item class="" v-if="fetched.indexOf(model.slug)>-1" :portfolio_slug="model.slug"></portfolio-item>
 							</div>
 						</div>
 
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-	import portfolioDetail from '../components/portfolio-detail';
+	import portfolioItem from '../components/portfolio-item';
 	import VueScrollTo from 'vue-scrollto';
 
 	export default {
@@ -50,27 +50,26 @@
 			};
 		},
 		created(){
-			this.fetchChildData( this.$route.params.slug );
-			axios.get('/api/portfolio').then( response => this.models = response.data );
+			this.fetchChildData( this.$route.params.portfolio_slug );
+			axios.get('/api/get-portfolio').then( response => this.models = response.data );
 		},
 		mounted(){
 
 		},
 		methods:{
 
-			fetchChildData(slug){
-				console.log('fetchChildData: '+slug);
-				if(this.fetched.indexOf(slug)== -1)
-					this.fetched.push(slug);
+			fetchChildData(portfolio_slug){
+				console.log('fetchChildData: '+portfolio_slug);
+				if(this.fetched.indexOf(portfolio_slug)== -1)
+					this.fetched.push(portfolio_slug);
 
 				setTimeout( function(){
-					VueScrollTo.scrollTo( "#link-"+slug, 500, {easing: 'ease-in', offset: -80});
+					VueScrollTo.scrollTo( "#link-"+portfolio_slug, 500, {easing: 'ease-in', offset: -80});
 				}, 100);
 			}
 		},
 		components:{
-			'portfolio-detail':portfolioDetail,
+			'portfolio-item':portfolioItem,
 		}
 	};
 </script>
-

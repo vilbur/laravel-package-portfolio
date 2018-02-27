@@ -27,8 +27,8 @@ class Portfolio extends Model
 	public function categoryPortfolio(){
 		return $this->belongsTo('Vilbur\Portfolio\Models\CategoryPortfolio');
 	}
-	public function portfolioFiles(){
-		return $this->hasMany('Vilbur\Portfolio\Models\PortfolioFile');
+	public function portfolioItems(){
+		return $this->hasMany('Vilbur\Portfolio\Models\PortfolioItem');
 	}
 
 	public function getImageUrlAttribute() {

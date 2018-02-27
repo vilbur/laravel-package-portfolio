@@ -1,6 +1,6 @@
 <template>
 	<div class="columns is-centered is-multiline" >
-		<gallery :id="'blueimp-gallery-' + slug" :images="images" :index="index" @close="index = null" :options="{youTubeVideoIdProperty: 'video', youTubePlayerVars: {rel:0}, youTubeClickToPlay: false}"></gallery>
+		<gallery :id="'blueimp-gallery-' + portfolio_item_id" :images="images" :index="index" @close="index = null" :options="{youTubeVideoIdProperty: 'video', youTubePlayerVars: {rel:0}, youTubeClickToPlay: false}"></gallery>
 
 		<div v-for="(image, imageIndex) in images" class="column is-6" >
 			<div class="image"
@@ -17,7 +17,7 @@
 
 	export default {
 
-		props: ['slug'],
+		props: ['portfolio_item_id'],
 		data(){
 			return {
 				//selected:	null,
@@ -27,7 +27,7 @@
 			};
 		},
 		created(){
-			axios.get('/api/portfolio/' + this.slug).then( response => {
+			axios.get('/api/get-portfolio-files/' + this.portfolio_item_id).then( response => {
 				this.portfolioFiles = response.data;
 				this.images = this.portfolioFiles.map(function(model){
 					return {
@@ -42,7 +42,7 @@
 			});
 		},
 		mounted(){
-			this.selected = this.$route.params.slug == this.slug;
+			this.selected = this.$route.params.portfolio_item_id == this.portfolio_item_id;
 		},
 
 	};
