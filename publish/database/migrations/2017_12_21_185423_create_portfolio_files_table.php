@@ -38,3 +38,4 @@ class CreatePortfolioFilesTable extends Migration
         Schema::drop('portfolio_files');
     }
 }
+

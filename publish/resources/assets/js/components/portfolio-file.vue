@@ -1,8 +1,8 @@
 <template>
-	<div class="columns is-centered is-multiline" >
+	<div class="portfolio-file columns is-mobile is-centered is-multiline border-OFF-p" >
 		<gallery :id="'blueimp-gallery-' + portfolio_item_id" :images="images" :index="index" @close="index = null" :options="{youTubeVideoIdProperty: 'video', youTubePlayerVars: {rel:0}, youTubeClickToPlay: false}"></gallery>
 
-		<div v-for="(image, imageIndex) in images" class="column is-6" >
+		<div v-for="(image, imageIndex) in images" class="column is-6-mobile is-4-desktop">
 			<div class="image"
 				:key="imageIndex"
 				@click="index = imageIndex"

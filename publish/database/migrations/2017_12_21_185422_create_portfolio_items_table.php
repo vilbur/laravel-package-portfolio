@@ -19,7 +19,7 @@ class CreatePortfolioItemsTable extends Migration
 			$table->integer('portfolio_id')->unsigned()->index();
 			$table->foreign('portfolio_id')->references('id')->on('portfolios')->onDelete('cascade');
 
-            $table->string('title',256);
+            $table->string('title',256)->nullable();
 			$table->string('summary', 256)->nullable();
 			$table->string('description', 2048)->nullable();
 

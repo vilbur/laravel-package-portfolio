@@ -15,6 +15,7 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('order');
 			$table->string('slug')->nullable();
 
             $table->integer('category_id')->unsigned()->index();
