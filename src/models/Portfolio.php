@@ -14,6 +14,8 @@ class Portfolio extends Model
 
     protected $appends = ['image_url'];
 
+	protected $fillable = [ 'category_id' ];
+
     /**
      * Return the sluggable configuration array for this model.
      *

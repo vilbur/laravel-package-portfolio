@@ -10,7 +10,7 @@ class PortfolioItem extends Model {
 
 	protected $table = 'portfolio_items';
 
-	protected $fillable = [ 'id', 'portfolio_id', 'title', 'summary', 'description' ];
+	protected $fillable = [ 'portfolio_id', 'title', 'summary', 'description' ];
 
 	protected $hidden = [];
 
