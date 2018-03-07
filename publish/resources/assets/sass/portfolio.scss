@@ -7,7 +7,7 @@
 			border:	1px solid grey;
 			background-position: center center;
 			background-size: 100%;
-			transition: all .3s;
+			transition: all 600ms;
 			position: relative;
 
 			.title,
@@ -25,14 +25,14 @@
 			}
 		}
 
-		a:not(.is-active):hover {
+		a:not(.shown):hover {
 			.subtitle{
 				//opacity: 1;
 			}
 		}
 
 		a:hover
-		,a.is-active
+		,a.shown
 		{
 			.portfolio-background{
 				background-size: 150%;
@@ -43,12 +43,12 @@
 
 			}
 		}
-		a.is-active .portfolio-background{
+		a.shown .portfolio-background{
 				-webkit-filter: grayscale(100%);
 				height: 5rem;
 		}
 
-		//a.is-active + .portfolio-detail{
+		//a.shown + .portfolio-detail{
 		////a:hover + .portfolio-detail{
 		//	border:	1px solid green;
 		//	max-height: 4096px;
@@ -58,9 +58,10 @@
 	}
 
 	.portfolio-detail{
-		//height: auto;
+		height: auto;
+		//height:	20vh;
 
-		//max-height: 0px;
+		max-height: 80192px;
 		overflow: hidden;
 		//transition: max-height 5s linear;
 
