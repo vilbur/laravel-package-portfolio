@@ -1,12 +1,11 @@
 <template>
 	<div class="portfolio-file columns is-mobile is-centered is-multiline border-OFF-p" >
-		<gallery :id="'blueimp-gallery-' + portfolio_item_id" :images="images" :index="index" @close="index = null" :options="{youTubeVideoIdProperty: 'video', youTubePlayerVars: {rel:0}, youTubeClickToPlay: false}"></gallery>
 
-		<div v-for="(image, imageIndex) in images" class="column is-6-mobile is-4-desktop">
+		<div v-for="(file, index) in files" class="column is-6-mobile is-4-desktop">
 			<div class="image"
-				:key="imageIndex"
-				@click="index = imageIndex"
-				:style="{ backgroundImage: 'url(' + image.href + ')' }"
+				:key="index_start + index"
+				@click="$emit('imageClicked', index_start + index)"
+				:style="{ backgroundImage: 'url(' + file.href + ')' }"
 			></div>
 		</div>
 
@@ -20,29 +19,33 @@
 		props: ['portfolio_item_id'],
 		data(){
 			return {
-				//selected:	null,
-				portfolioFiles:	[],
-				images:	[],
-				index:	null
+				files:	[],
+				index_start:	0,
 			};
 		},
 		created(){
 			axios.get('/api/get-portfolio-files/' + this.portfolio_item_id).then( response => {
-				this.portfolioFiles = response.data;
-				this.images = this.portfolioFiles.map(function(model){
+				//this.portfolioFiles = response.data;
+				this.files =  response.data.map(function(file){
 					return {
-						title:	model.title,
-						description:	model.description,
+						title:	file.title,
+						description:	file.description,
 						type:	'text/html',
-						href:	model.image_url,
-						video:	model.url,
-
+						href:	file.image_url,
+						video:	file.url,
 					};
 				});
+
+				this.index_start	= this.$parent.galleryImages.length
+				this.$emit('imagesPrepared', this.files)
+
 			});
 		},
 		mounted(){
 			this.selected = this.$route.params.portfolio_item_id == this.portfolio_item_id;
+		},
+		methods:{
+
 		},
 
 	};
