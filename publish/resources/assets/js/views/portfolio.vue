@@ -5,9 +5,9 @@
 			<router-link to="/portfolio/all" @click.native="showAll()">ALL</router-link>
 		</h1>
 
-		<div v-for="(portfolio, index) in portfolios" class="portfolio_item hero" :id="'hero-'+portfolio.slug"  :portfolio="portfolio">
-			<div class="hero-body border-OFFX-r">
-				<div class="container border-OFFX-g">
+		<div v-for="(portfolio, index) in portfolios" class="portfolio hero" :id="'hero-'+portfolio.slug"  :portfolio="portfolio">
+			<div class="hero-body border-OFF-r">
+				<div class="container border-OFF-g">
 
 					<router-link
 						:to="{ path: '/portfolio/' + portfolio.slug }"
@@ -18,23 +18,23 @@
 							<h2 class="title is-1 ">{{ portfolio.title }}</h2>
 						</div>
 					</router-link>
-					<div class="hero-foot portfolio-detail border-OFF-r">
-						<transition name="show">
-							<portfolio-item
-								:portfolio_slug="portfolio.slug"
-								v-if="isFetched(portfolio.slug)"
-								v-show="isShown(portfolio.slug)"
-							></portfolio-item>
-						</transition>
+					<div class="hero-foot border-OFF-r">
+						<div class="container border-OFF">
 
+							<transition name="show">
+								<portfolio-item
+									:portfolio_slug="portfolio.slug"
+									v-if="isFetched(portfolio.slug)"
+									v-show="isShown(portfolio.slug)"
+								></portfolio-item>
+							</transition>
+
+						</div>
 					</div>
-
 
 				</div>
 			</div>
 		</div>
-
-		<footer-component></footer-component>
 
 	</div>
 
@@ -70,7 +70,7 @@
 			};
 		},
 		created(){
-			//this.show( this.$route.params.portfolio_slug );
+			this.show( this.$route.params.portfolio_slug );
 			axios.get('/api/get-portfolio').then( response => this.portfolios = response.data );
 		},
 		methods:{
@@ -132,18 +132,3 @@
 		}
 	};
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
