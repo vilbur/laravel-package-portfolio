@@ -3,7 +3,7 @@
 
 		<gallery :id="'blueimp-gallery-' + portfolio_slug" :images="galleryImages" :index="index" @close="index = null" :options="{youTubeVideoIdProperty: 'video', youTubePlayerVars: {rel:0}, youTubeClickToPlay: false}"></gallery>
 
-		<div v-for="item in portfolioItems" class="column is-12 border-OFF-g" >
+		<div v-for="item in portfolioItems" class="column is-12" >
 
 			<div class="portfolio-item columns">
 				<div v-if="hasText(item)" class="portfolio-item-about column is-4">
@@ -51,7 +51,7 @@
 			}
 		},
 		created(){
-			axios.get('/api/get-portfolio-items/' + this.portfolio_slug).then( response => {
+			axios.get('/db/portfolio-items/' + this.portfolio_slug).then( response => {
 				this.portfolioItems = response.data;
 			});
 

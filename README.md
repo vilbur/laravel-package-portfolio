@@ -1,26 +1,40 @@
-#
-Package portfolio.<br>
+# Laravel package - portfolio<br>
+* optimized for Vue.js & Bulma
+
+## Dependencies
+[vue-router](https://github.com/vuejs/vue-router)<br>
+[vue-gallery](https://github.com/RobinCK/vue-gallery)<br>
+[vue-scrollto](https://github.com/rigor789/vue-scrollto)<br>
 
 
-### \resources\assets\js\app.js
-``` javascript
-import VueGallery from 'vue-gallery';
-window.Vue.component('gallery', VueGallery);
-```
-
-### \resources\assets\js\routes.js
-``` javascript
-const Portfolio	= () => import('./views/portfolio/portfolio.vue');
-```
-
-### Dependency
-[vue-gallery](https://github.com/RobinCK/vue-gallery)  
-
-### Install package
+### Install
 ``` bash
 composer require vilbur/portfolio @dev
 ```
-#### Publish files
+
+### Publish files
 ``` bash
-php artisan vendor:publish --tag="portfolio"
+php artisan vendor:publish --tag="vilbur/portfolio'"
 ```
+
+### app.js
+``` javascript
+
+// import vilbur-portfolio view
+const Portfolio	= () => import('./portfolio/views/portfolio.vue');
+
+// routes for vue-router
+const router = new VueRouter({
+	routes:{
+		path:	'/portfolio/:portfolio_slug?',
+		name:	'portfolio',
+		component:	Portfolio
+	},
+});
+```
+
+### app.scss
+``` scss
+@import 'portfolio/portfolio.scss';
+```
+

@@ -1,13 +1,13 @@
 <template>
-	<div id="portfolio">
+	<div id="vilbur-portfolio">
 
 		<h1 class="title is-1 has-text-centered">
 			<router-link to="/portfolio/all" @click.native="showAll()">ALL</router-link>
 		</h1>
 
 		<div v-for="(portfolio, index) in portfolios" class="portfolio hero" :id="'hero-'+portfolio.slug"  :portfolio="portfolio">
-			<div class="hero-body border-OFF-r">
-				<div class="container border-OFF-g">
+			<div class="hero-body">
+				<div class="container">
 
 					<router-link
 						:to="{ path: '/portfolio/' + portfolio.slug }"
@@ -18,8 +18,8 @@
 							<h2 class="title is-1 ">{{ portfolio.title }}</h2>
 						</div>
 					</router-link>
-					<div class="hero-foot border-OFF-r">
-						<div class="container border-OFF">
+					<div class="hero-foot">
+						<div class="container">
 
 							<transition name="show">
 								<portfolio-item
@@ -59,6 +59,7 @@
 <script>
 	import portfolioItem from '../components/portfolio-item';
 	import VueScrollTo from 'vue-scrollto';
+	import VueGallery from 'vue-gallery';
 
 	export default {
 
@@ -71,7 +72,7 @@
 		},
 		created(){
 			this.show( this.$route.params.portfolio_slug );
-			axios.get('/api/get-portfolio').then( response => this.portfolios = response.data );
+			axios.get('/db/portfolio').then( response => this.portfolios = response.data );
 		},
 		methods:{
 
@@ -128,7 +129,8 @@
 		},
 
 		components:{
-			'portfolio-item':portfolioItem,
+			'portfolio-item':	portfolioItem,
+			'vue-gallery':	VueGallery,
 		}
 	};
 </script>

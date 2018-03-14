@@ -20,14 +20,12 @@ class PortfolioController extends Controller
 	public function getPortfolioItems($portfolio_slug)
 	{
 		return Portfolio::findBySlug($portfolio_slug)->portfolioItems->toArray();
-		//return Portfolio::findBySlug($portfolio_slug)->portfolioItems->sortByDesc('id')->values();
 	}
 
 	/**
 	*/
 	public function getPortfolioFiles($portfolio_item_id)
 	{
-		//return PortfolioItem::find($portfolio_item_id)->portfolioFiles->toArray();
 		return PortfolioItem::find($portfolio_item_id)->portfolioFiles->sortBy('id')->values();
 	}
 

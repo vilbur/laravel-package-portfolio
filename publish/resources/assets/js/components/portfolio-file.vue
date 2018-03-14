@@ -1,5 +1,5 @@
 <template>
-	<div class="portfolio-file columns is-mobile is-centered is-multiline border-OFF-p" >
+	<div class="portfolio-file columns is-mobile is-centered is-multiline" >
 
 		<div v-for="(file, index) in files" class="column is-6-mobile is-4-desktop">
 			<div class="image"
@@ -24,7 +24,7 @@
 			};
 		},
 		created(){
-			axios.get('/api/get-portfolio-files/' + this.portfolio_item_id).then( response => {
+			axios.get('/db/portfolio-files/' + this.portfolio_item_id).then( response => {
 				//this.portfolioFiles = response.data;
 				this.files =  response.data.map(function(file){
 					return {
