@@ -16,6 +16,10 @@ const Portfolio	= () => import('./views/portfolio/portfolio.vue');
 ### Dependency
 [vue-gallery](https://github.com/RobinCK/vue-gallery)  
 
+### Install package
+``` bash
+composer require vilbur/portfolio @dev
+```
 #### Publish config files
 ``` bash
 php artisan vendor:publish --tag="portfolio"
