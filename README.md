@@ -20,7 +20,7 @@ const Portfolio	= () => import('./views/portfolio/portfolio.vue');
 ``` bash
 composer require vilbur/portfolio @dev
 ```
-#### Publish config files
+#### Publish files
 ``` bash
 php artisan vendor:publish --tag="portfolio"
 ```
