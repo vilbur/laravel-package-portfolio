@@ -2,9 +2,9 @@
 * optimized for Vue.js & Bulma  
 
 ## Dependencies  
-[vue-router](https://github.com/vuejs/vue-router)<br>  
-[vue-gallery](https://github.com/RobinCK/vue-gallery)<br>  
-[vue-scrollto](https://github.com/rigor789/vue-scrollto)<br>  
+[vue-router](https://github.com/vuejs/vue-router)  
+[vue-gallery](https://github.com/RobinCK/vue-gallery)  
+[vue-scrollto](https://github.com/rigor789/vue-scrollto)  
 
 
 ### Install  
