@@ -1,7 +1,7 @@
 <template>
 	<div class="columnsX is-centered is-multiline" >
 
-		<gallery :id="'blueimp-gallery-' + portfolio_slug" :images="galleryImages" :index="index" @close="index = null" :options="{youTubeVideoIdProperty: 'video', youTubePlayerVars: {rel:0}, youTubeClickToPlay: false}"></gallery>
+		<vue-gallery :id="'blueimp-gallery-' + portfolio_slug" :images="galleryImages" :index="index" @close="index = null" :options="{youTubeVideoIdProperty: 'video', youTubePlayerVars: {rel:0}, youTubeClickToPlay: false}"></vue-gallery>
 
 		<div v-for="item in portfolioItems" class="column is-12" >
 
@@ -27,7 +27,8 @@
 </template>
 
 <script>
-	import portfolioFile from './portfolio-file';
+	import portfolioFile	from './portfolio-file';
+	import VueGallery	from 'vue-gallery';
 
 	export default {
 
@@ -61,7 +62,8 @@
 			this.selected = this.$route.params.portfolio_slug == this.portfolio_slug;
 		},
 		components:{
-			'portfolio-file':portfolioFile,
+			'portfolio-file':	portfolioFile,
+			'vue-gallery':	VueGallery,
 		}
 
 	};

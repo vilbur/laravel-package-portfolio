@@ -57,9 +57,8 @@
 
 
 <script>
-	import portfolioItem from '../components/portfolio-item';
-	import VueScrollTo from 'vue-scrollto';
-	import VueGallery from 'vue-gallery';
+	import portfolioItem	from '../components/portfolio-item';
+	import VueScrollTo	from 'vue-scrollto';
 
 	export default {
 
@@ -130,7 +129,6 @@
 
 		components:{
 			'portfolio-item':	portfolioItem,
-			'vue-gallery':	VueGallery,
 		}
 	};
 </script>
