@@ -4,7 +4,6 @@
 	"description": "Template for development of packages for Laravel",
 	"keywords": [
 		"vilbur",
-		"TestPackage"
 	],
 	"homepage": "https://github.com/vilbur/laravel-package-portfolio",
 	"license": "MIT",
@@ -15,6 +14,9 @@
 	}],
 	"require": {},
 	"require-dev": {},
+	"dependencies": {
+		"vue-gallery": "@dev"
+	},
 	"autoload": {
 		"psr-4": {
 			"Vilbur\\Portfolio\\": "src/"
