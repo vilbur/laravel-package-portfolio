@@ -16,13 +16,15 @@ class PortfolioDatabaseSeeder extends Seeder
 		 */
 		$this->call(CategoryPorfoliosFakerSeeder::class);
 		$this->call(PorfoliosFakerSeeder::class);
+		$this->call(PortfolioItemsFakerSeeder::class);		
 		$this->call(PortfolioFilesFakerSeeder::class);
 		
 		/** Production  
 		 */		
 		//$this->call(CategoryPorfoliosTableSeeder::class);
 		//$this->call(PorfoliosTableSeeder::class);
-		//$this->call(PortfolioFilesTableSeeder::class);
+		//$this->call(PortfolioItemsTableSeeder::class);
+		//$this->call(PortfolioFilesTableSeeder::class);		
 		
     }
 }

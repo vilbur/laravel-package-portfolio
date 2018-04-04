@@ -13,11 +13,10 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(\Vilbur\Portfolio\Models\Portfolio::class, function (Faker $faker) {
+$factory->define(\Vilbur\Portfolio\Models\PortfolioItem::class, function (Faker $faker) {
     return [
-		'category_id'	=> $faker->randomElement(\DB::table('category_portfolios')->select('id')->get()->toArray())->id,
+		'portfolio_id'	=> $faker->randomElement(\DB::table('portfolios')->select('id')->get()->toArray())->id,
 		'title'	=> $faker->text(24),
-		'image'	=> "https://picsum.photos/1600/1200?image=" . $faker->numberBetween(1, 100),
 		'summary'	=> $faker->sentence(6, true),
 		'description'	=> $faker->text(128),
     ];

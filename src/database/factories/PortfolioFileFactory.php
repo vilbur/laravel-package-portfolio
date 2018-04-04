@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\Vilbur\Portfolio\Models\PortfolioFile::class, function (Faker $faker) {
     return [
-		'portfolio_id'	=> $faker->randomElement(\DB::table('portfolios')->select('id')->get()->toArray())->id,
+		'portfolio_item_id'	=> $faker->randomElement(\DB::table('portfolio_items')->select('id')->get()->toArray())->id,
 		'title'	=> $faker->text(24),
 		'author'	=> $faker->name(),
 		'image'	=> "https://picsum.photos/1600/1200?image=" . $faker->numberBetween(1, 100),
