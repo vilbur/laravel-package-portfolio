@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Vilbur\Portfolio\Models\PortfolioFile;
 
-class PortfolioFilesSeeder extends Seeder {
+class PortfolioFilesFakerSeeder extends Seeder {
 
 	/**
 	 * Auto generated seed file
