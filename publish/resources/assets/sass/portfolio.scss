@@ -31,13 +31,13 @@
 		}
 
 		a:hover
-		,a.shown
+		,a.visible
 		{
 			.portfolio-background{
 				background-size: 150%;
 			}
 		}
-		a.shown .portfolio-background{
+		a.visible .portfolio-background{
 			-webkit-filter: grayscale(100%);
 			height: 5rem;
 			margin-bottom: 3rem;
@@ -45,7 +45,7 @@
 	}
 
 	.portfolio-item{
-		height: auto;
+		height: auto; 
 		max-height: 80192px;
 		overflow: hidden;
 		*{

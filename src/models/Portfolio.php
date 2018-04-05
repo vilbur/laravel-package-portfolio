@@ -12,7 +12,7 @@ class Portfolio extends Model
 	use Sluggable;
     use SluggableScopeHelpers;
 
-    protected $appends = ['image_url'];
+    protected $appends = ['category', 'image_url'];
 
 	protected $fillable = [ 'category_id' ];
 
@@ -26,14 +26,23 @@ class Portfolio extends Model
         return [ 'slug' => [ 'source' => 'title' ] ];
     }
 
-	public function categoryPortfolio(){
-		return $this->belongsTo('Vilbur\Portfolio\Models\CategoryPortfolio');
+	public function categoryPortfolio()
+	{
+		return $this->belongsTo('Vilbur\Portfolio\Models\CategoryPortfolio', 'category_id');
 	}
-	public function portfolioItems(){
+	
+	public function portfolioItems()
+	{
 		return $this->hasMany('Vilbur\Portfolio\Models\PortfolioItem');
 	}
 
-	public function getImageUrlAttribute() {
+	public function getCategoryAttribute($value)
+	{
+		return $this->categoryPortfolio->slug;
+    }
+	
+	public function getImageUrlAttribute()
+	{
 		return preg_match('/^http/i', $this->image ) ? $this->image :  Storage::url($this->image);
     }
 }

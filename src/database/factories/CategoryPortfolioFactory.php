@@ -15,7 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\Vilbur\Portfolio\Models\CategoryPortfolio::class, function (Faker $faker) {
     return [
-		'title'	=> $faker->text(128),
+		'title'	=> $faker->word(1, true),
 		'summary'	=> $faker->sentence(6, true),
 		'description'	=> $faker->text(128),
     ];
