@@ -13,7 +13,7 @@ class PortfolioFilesFakerSeeder extends Seeder {
 	public function run()
 	{
 		if(!PortfolioFile::all()->first())
-			factory(PortfolioFile::class, 20)->create();
+			factory(PortfolioFile::class, 40)->create();
 	}
 
 }
