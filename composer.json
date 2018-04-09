@@ -3,7 +3,7 @@
 	"type": "library",
 	"description": "Template for development of packages for Laravel",
 	"keywords": [
-		"vilbur",
+		"vilbur"
 	],
 	"homepage": "https://github.com/vilbur/laravel-package-portfolio",
 	"license": "MIT",
