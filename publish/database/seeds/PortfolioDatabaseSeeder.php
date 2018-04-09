@@ -14,7 +14,7 @@ class PortfolioDatabaseSeeder extends Seeder
 	{	
 		if (\App::environment('faker'))
 		{
-			$this->call(CategoryPorfoliosFakerSeeder::class);
+			$this->call(CategoryPortfoliosFakerSeeder::class);
 			$this->call(PortfoliosFakerSeeder::class);
 			$this->call(PortfolioItemsFakerSeeder::class);		
 			$this->call(PortfolioFilesFakerSeeder::class);
