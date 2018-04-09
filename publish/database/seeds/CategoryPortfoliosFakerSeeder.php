@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Vilbur\Portfolio\Models\CategoryPortfolio;
 
-class CategoryPorfoliosFakerSeeder extends Seeder
+class CategoryPortfoliosFakerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
