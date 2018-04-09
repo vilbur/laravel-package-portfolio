@@ -21,7 +21,7 @@ class PortfolioDatabaseSeeder extends Seeder
 		}
 		else
 		{
-			$this->call(CategoryPorfoliosTableSeeder::class);
+			$this->call(CategoryPortfoliosTableSeeder::class);
 			$this->call(PortfoliosTableSeeder::class);
 			$this->call(PortfolioItemsTableSeeder::class);
 			$this->call(PortfolioFilesTableSeeder::class);		
