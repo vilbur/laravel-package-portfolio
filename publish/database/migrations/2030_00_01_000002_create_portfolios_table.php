@@ -24,7 +24,7 @@ class CreatePortfoliosTable extends Migration
             $table->string('title',256);
 			$table->string('image', 512)->nullable();
 			$table->string('summary', 256)->nullable();
-			$table->string('description', 2048)->nullable();
+			$table->text('description', 2048)->nullable();
             $table->timestamps();
        });
     }

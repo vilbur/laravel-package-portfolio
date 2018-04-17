@@ -16,14 +16,14 @@ class CreatePortfolioFilesTable extends Migration
 			$table->increments('id');
 
 			$table->integer('portfolio_item_id')->unsigned()->index();
-			$table->foreign('portfolio_item_id')->references('id')->on('portfolio_items')->onDelete('cascade');
+			$table->foreign('portfolio_item_id')->references('id')->on('portfolio_items')->onDele;
 
-			$table->string('image',  \Config::get('migrations.lenght.image'))->nullable();
-			$table->string('url',   \Config::get('migrations.lenght.url'))->nullable();
-			$table->string('title', \Config::get('migrations.lenght.title'))->nullable();
-			$table->string('author',\Config::get('migrations.lenght.author'))->nullable();
-			$table->string('summary', \Config::get('migrations.lenght.summary'))->nullable();
-			$table->string('description',\Config::get('migrations.lenght.description'))->nullable();
+			$table->string('image')->nullable();
+			$table->string('url')->nullable();
+			$table->string('title')->nullable();
+			$table->string('author')->nullable();
+			$table->string('summary')->nullable();
+			$table->text('description')->nullable();
 
 			$table->timestamps();
 		});

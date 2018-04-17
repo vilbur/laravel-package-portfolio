@@ -18,7 +18,7 @@ class CreateCategoryPortfoliosTable extends Migration
 			$table->string('slug')->nullable();
             $table->string('title',256);
 			$table->string('summary', 256)->nullable();
-			$table->string('description', 2048)->nullable();
+			$table->text('description')->nullable();
             $table->timestamps();
        });
     }
