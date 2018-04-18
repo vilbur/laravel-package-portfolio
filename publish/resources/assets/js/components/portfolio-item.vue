@@ -1,7 +1,14 @@
 <template>
-	<div class="columnsX is-centered is-multiline" >
+	<div class="columnsX is-centeredX is-multiline" >
+		
+		<div  v-html="portfolio_description"></div>
 
-		<vue-gallery :id="'blueimp-gallery-' + portfolio_slug" :images="galleryImages" :index="index" @close="index = null" :options="{youTubeVideoIdProperty: 'video', youTubePlayerVars: {rel:0}, youTubeClickToPlay: false}"></vue-gallery>
+		<vue-gallery :id="'blueimp-gallery-' + portfolio_slug"
+					 :images="galleryImages"
+					 :index="index"
+					 @close="index = null"
+					 :options="this.options_youtube">
+		</vue-gallery>
 
 		<div v-for="item in portfolioItems" class="column is-12" >
 
@@ -17,27 +24,32 @@
 						v-on:imagesPrepared="addGalleryImages"
 						v-on:imageClicked="openGallery"
 						:portfolio_item_id="item.id"
-					></portfolio-file>
+					></portfolio-file> 
 				</div>
 			</div>
 
 		</div>
 
-	</div>
+	</div> 
 </template>
 
 <script>
-	import portfolioFile	from './portfolio-file';
-	import VueGallery	from 'vue-gallery';
+	import portfolioFile from './portfolio-file';
+	import VueGallery from 'vue-gallery';
 
 	export default {
 
-		props: ['portfolio_slug'],
+		props: ['portfolio_slug', 'portfolio_description'],
 		data(){
 			return {
 				portfolioItems:	[],
 				galleryImages:	[],
-				index:	null
+				index:	null,
+				options_youtube: { // reference: https://github.com/blueimp/Gallery#youtube-options
+					youTubeVideoIdProperty: 	'video',	
+					youTubeClickToPlay:	false,
+					youTubePlayerVars:	{rel:0, modestbranding:1, mute:1}, // parameters passed to video link, reference: https://developers.google.com/youtube/player_parameters#Parameters
+				}
 			};
 		},
 		methods:{
@@ -62,8 +74,9 @@
 			this.selected = this.$route.params.portfolio_slug == this.portfolio_slug;
 		},
 		components:{
-			'portfolio-file':	portfolioFile,
+			'portfolio-file':portfolioFile,
 			'vue-gallery':	VueGallery,
+			
 		}
 
 	};
